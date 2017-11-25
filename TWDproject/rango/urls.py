@@ -10,4 +10,5 @@ import views
 # The one in 1.11
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^about/', view.about, name='about'),
 ]
