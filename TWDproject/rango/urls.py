@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url, include
-from rango import views
+import views
 
 
 # the one in 1.7
