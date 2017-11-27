@@ -50,6 +50,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Need to use absolute paths to the location of 'templates' directory
+TEMPLATE_DIRS = (
+    '/home/freman/lp/TWDproject/templates/rango',
+)
+
 ROOT_URLCONF = 'TWDproject.urls'
 
 TEMPLATES = [
