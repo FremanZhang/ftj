@@ -58,9 +58,8 @@ ROOT_URLCONF = 'TWDproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_PATH],
         'APP_DIRS': True,
-        'TEMPLATE_DIRS': TEMPLATE_PATH,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
