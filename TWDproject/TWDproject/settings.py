@@ -26,7 +26,7 @@ SECRET_KEY = '&4!fph^c!)bg0e13owb==iyytnzm8s@_6i_d#ez724-!hpsggr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.2']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -52,12 +52,6 @@ MIDDLEWARE = [
 ]
 
 # Need to use absolute paths to the location of 'templates' directory
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    TEMPLATE_PATH,
-)
 
 ROOT_URLCONF = 'TWDproject.urls'
 
@@ -66,6 +60,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
         'APP_DIRS': True,
+        'TEMPLATE_DIRS': TEMPLATE_PATH
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
