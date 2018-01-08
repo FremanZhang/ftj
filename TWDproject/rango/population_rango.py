@@ -14,9 +14,9 @@ def populate():
     
     add_page(
         category=python_cat,
-        title='How to think like a computer science'
+        title='How to think like a computer science',
         url='http://docs.python.org/2/tutorial/')
-        
+
     add_page(cat=python_cat,
         title="Learn Python in 10 Minutes",
         url="http://www.korokithakis.net/tutorials/python/")
