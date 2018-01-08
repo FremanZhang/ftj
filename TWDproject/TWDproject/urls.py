@@ -16,16 +16,17 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^rango/', include('rango.urls')),
-]
+] + static(settings.MEDIA_URL, view=serve, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += patterns(
-            'django.views.static',
-            (r'media/(?P<path>.*)',
-            'serve',
-            {'document_root': settings.MEDIA_ROOT}),
-    )
+# if settings.DEBUG:
+#     urlpatterns += patterns(
+#             'django.views.static',
+#             (r'media/(?P<path>.*)',
+#             'serve',
+#             {'document_root': settings.MEDIA_ROOT}),
+#     )
