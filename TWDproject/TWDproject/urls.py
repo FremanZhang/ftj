@@ -23,10 +23,14 @@ urlpatterns = [
     url(r'^rango/', include('rango.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# if settings.DEBUG:
-#     urlpatterns += patterns(
-#             'django.views.static',
-#             (r'media/(?P<path>.*)',
-#             'serve',
-#             {'document_root': settings.MEDIA_ROOT}),
-#     )
+"""
+As of Django 1.10, the patterns module has been removed (it had been deprecated since 1.8)
+
+if settings.DEBUG:
+    urlpatterns += patterns(
+            'django.views.static',
+            (r'media/(?P<path>.*)',
+            'serve',
+            {'document_root': settings.MEDIA_ROOT}),
+    )
+"""
