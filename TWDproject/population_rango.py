@@ -10,7 +10,7 @@ from rango.models import Category, Page
 def populate():
     
     # Category 'Python'
-    python_cat = add_cat('Python')
+    python_cat = add_cat(name='Python', views=128, likes=64)
     
     add_page(cat=python_cat,
         title="Official Python Tutorial",
@@ -25,7 +25,7 @@ def populate():
         url="http://www.korokithakis.net/tutorials/python/")
 
     # Categoty 'Django'
-    django_cat = add_cat("Django")
+    django_cat = add_cat(name="Django", views=64, likes=32)
 
     add_page(cat=django_cat,
         title="Official Django Tutorial",
@@ -40,7 +40,7 @@ def populate():
         url="http://www.tangowithdjango.com/")
 
     # Category Frameworks
-    frame_cat = add_cat("Other Frameworks")
+    frame_cat = add_cat("Other Frameworks", views=32, likes=16)
 
     add_page(cat=frame_cat,
         title="Bottle",
@@ -61,8 +61,11 @@ def populate():
 >>> Category.objects.get_or_create(name='MES')[0]
 <Category: MES>
 '''
-def add_cat(name):
+def add_cat(name, views=0, likes=0):
     c = Category.objects.get_or_create (name=name)[0]
+    c.views = views
+    c.likes = likes
+    c.save()
     return c
 
 
