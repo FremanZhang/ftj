@@ -53,7 +53,7 @@ def populate():
 
 
 def add_cat(name):
-    c = Category.objects.get_or_create (name=name)
+    c = Category.objects.get_or_create (name=name)[0]
     return c
 
 
