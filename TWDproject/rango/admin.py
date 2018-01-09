@@ -5,15 +5,8 @@ from django.contrib import admin
 from rango.models import Category, Page
 
 # Register your models here.
-'''
-# Preceding register
-admin.site.register(Category)
-admin.site.register(Page)
-'''
-
-
-# Admin regisyer decorator
-@admin.register(Category,Page)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Page, PageAdmin)
 
 class CategoryAdmin(admin.ModelAdmin):
     fields = ('name', 'views', 'likes')
