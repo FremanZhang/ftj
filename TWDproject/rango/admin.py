@@ -6,7 +6,7 @@ from rango.models import Category, Page
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    fields = ('name', 'views', 'likes')
+    list_display = ('name', 'views', 'likes')
     empty_value_display = '-'
     
 
