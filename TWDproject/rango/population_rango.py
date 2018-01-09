@@ -66,7 +66,7 @@ def add_page(category, title, url, views=0):
 
 
 # Start execution
-if __name__ = '__main__':
+if __name__ == '__main__':
     print 'Starting Rango population script...'
     populate()
 
