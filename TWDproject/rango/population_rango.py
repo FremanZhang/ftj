@@ -1,5 +1,5 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODUEL', 'TWDproject.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TWDproject.settings')
 
 import django
 django.setup()
