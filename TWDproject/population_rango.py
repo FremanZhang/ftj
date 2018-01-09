@@ -55,6 +55,12 @@ def populate():
             print "- {0} - {1}".format(str(c), str(p))
 
 
+'''
+>>> Category.objects.get_or_create(name='MES')
+(<Category: MES>, True)
+>>> Category.objects.get_or_create(name='MES')[0]
+<Category: MES>
+'''
 def add_cat(name):
     c = Category.objects.get_or_create (name=name)[0]
     return c
