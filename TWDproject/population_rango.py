@@ -51,7 +51,7 @@ def populate():
         url="http://flask.pocoo.org")
 
     for c in Category.objects.all():
-        for p in Page.objects.all():
+        for p in Page.objects.all(category=c):
             print "- {0} - {1}".format(str(c), str(p))
 
 
