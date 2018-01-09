@@ -12,10 +12,13 @@ def populate():
     # Category 'Python'
     python_cat = add_cat('Python')
     
-    add_page(
-        category=python_cat,
-        title='How to think like a computer science',
-        url='http://docs.python.org/2/tutorial/')
+    add_page(cat=python_cat,
+        title="Official Python Tutorial",
+        url="http://docs.python.org/2/tutorial/")
+
+    add_page(cat=python_cat,
+        title="How to Think like a Computer Scientist",
+        url="http://www.greenteapress.com/thinkpython/")
 
     add_page(cat=python_cat,
         title="Learn Python in 10 Minutes",
