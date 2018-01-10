@@ -22,14 +22,15 @@ def about(request):
 
 def category(request, category_name_slug):
     context_dict = {}
-
-    c = Category.objects.get(slug=category_name_slug)
-    context_dict['category_name'] = c.name 
-    
-    pages = Page.objects.filter(category=c)
-    context_dict['pages'] = pages
-    
-    context_dict['category'] = c
+    try:
+        c = Category.objects.get(slug=category_name_slug)
+        context_dict['category_name'] = c.name 
+        
+        pages = Page.objects.filter(category=c)
+        context_dict['pages'] = pages
+        context_dict['category'] = c
+    except Category.DoesNotExist:
+        pass
 
     return render(request, 'rango/category.html', context_dict)
 
