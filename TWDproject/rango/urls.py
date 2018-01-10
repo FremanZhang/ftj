@@ -8,7 +8,7 @@ import views
 # )
 
 # The one in 1.11
-#### [\w\-]+ 指一个或多个[字母，数字，下划线或中横线]
+#### [\w\-]+ presents one or more [number, char, _ or -]
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^about/', views.about, name='about'),
