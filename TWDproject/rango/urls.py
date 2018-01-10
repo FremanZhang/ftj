@@ -12,5 +12,5 @@ import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^about/', views.about, name='about'),
-    url(r'^category/(?P<category_slug_name>[\w\-]+/$)', views.catefory, name='category'),
+    url(r'^category/(?P<category_slug_name>[\w\-]+/$)', views.category, name='category'),
 ]
