@@ -18,3 +18,18 @@ def about(request):
     }
     return render(request, 'rango/about.html', context_dict)
     # return HttpResponse("This is about page. <br/> <a href='/rango/'>Index</a>")
+
+
+def category(request, category_name_slug):
+    context_dict = {}
+
+    c = Category.objects.get(slug=category_name_slug)
+    context_dict['category_name'] = c.name 
+    
+    pages = Page.objects.filter(category=c)
+    context_dict['pages'] = pages
+    
+    context_dict['category'] = c
+
+    return render(request, 'rango/category.html', context_dict)
+
