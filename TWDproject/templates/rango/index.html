@@ -18,8 +18,8 @@
                     <li>
                         {% comment %} {{ category.name }} {% endcomment %}
                         {% comment %} <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a> {% endcomment %}
-                        {% comment %} decouple hardcode URLs below{% endcomment %}
-                        <a href="{% url 'rango:category' category_name_slug %}">{{ category.name }}</a>
+                        {% comment %} decouple hardcode URLs below: pass parameter slug to category url pattern{% endcomment %}
+                        <a href="{% url 'category' category.slug %}">{{ category.name }}</a>
                     </li>
                 {% endfor %}
             </ul>
