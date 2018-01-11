@@ -8,8 +8,9 @@ from rango.models import Category, Page
 
 def index(request):
     # return HttpResponse(" Rango says: Hello world! <br/> <a href='/rango/about'>About</a>")
-    context_list = Category.objects.order_by('-likes')[:5]
-    context_dict = {'top5_categories': context_list}
+    context_list_category = Category.objects.order_by('-likes')[:5]
+    content_list_page = Page.objects.order_by('-views')[:5]
+    context_dict = {'top5_categories': context_list_category, 'top5_pages': content_list_page}
     return render(request, 'rango/index.html', context_dict)
 
 
