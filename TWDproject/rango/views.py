@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+# from django.http import Http404
+# from django.http import HttpResponse
 from rango.models import Category, Page
 
 def index(request):
@@ -23,14 +24,15 @@ def about(request):
 def category(request, category_name_slug):
     context_dict = {}
     try:
-        c = Category.objects.get(slug=category_name_slug)
+        # c = Category.objects.get(slug=category_name_slug)
+        c = get_object_or_404(Category, slug=category_name_slug)
         context_dict['category_name'] = c.name 
         
         pages = Page.objects.filter(category=c)
         context_dict['pages'] = pages
         context_dict['category'] = c
     except Category.DoesNotExist:
-        pass
+        raise Http404('Category does not exist.')
 
     return render(request, 'rango/category.html', context_dict)
 
