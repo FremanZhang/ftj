@@ -10,7 +10,7 @@ class CategoryForm(forms.ModelForm):
 
     class Meta:
         model = Category
-        fields = ('name')
+        fields = ('name',)
 
 
 class PageForm(forms.ModelForm):
@@ -20,5 +20,4 @@ class PageForm(forms.ModelForm):
 
     class Meta:
         model = Page
-        exclude = ('category')
-        
+        exclude = ('category',)
