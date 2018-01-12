@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404
 # from django.http import Http404
 # from django.http import HttpResponse
 from rango.models import Category, Page
+from rango.forms import CategoryForm, PageForm
 
 def index(request):
     # return HttpResponse(" Rango says: Hello world! <br/> <a href='/rango/about'>About</a>")
@@ -41,6 +42,21 @@ def category(request, category_name_slug):
     context_dict['pages'] = pages
     context_dict['category'] = c
 
-
     return render(request, 'rango/category.html', context_dict)
+
+
+def add_category(request):
+    if request.method =='POST':
+        forms = CategoryForm(request.POST)
+        if forms.is_valid:
+            forms.save(commit=True)
+            return index(request)
+        else:
+            print forms.error
+    else:
+        form = CategoryForm()
+
+    return render(request, 'rango/add_category.html', {'form': form})
+
+
 

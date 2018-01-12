@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^about/', views.about, name='about'),
     url(r'^category/(?P<category_name_slug>[\w\-]+)/$', views.category, name='category'),
     url(r'^category/$', views.index, name='category_list'),
+    url(r'^add_category/$', views.add_category, name='add_category'),
 ]
