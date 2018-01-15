@@ -14,3 +14,8 @@
 
         detail(request=<HttpRequest object>, question_id='34')
         url(r'^(?P<question_id>[0-9]+)/results/$', views.results, name='results'),
+
+- V8.3
+    1/ Cannot check existence.
+    2/ String case seneitive. python, Python, pyTHON
+    3/ Add datetime in Homepage: year_SN, week_SN, day_SN

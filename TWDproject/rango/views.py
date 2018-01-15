@@ -6,12 +6,26 @@ from django.shortcuts import render, get_object_or_404
 # from django.http import HttpResponse
 from rango.models import Category, Page
 from rango.forms import CategoryForm, PageForm
+import datetime
+import calendar
 
 def index(request):
     # return HttpResponse(" Rango says: Hello world! <br/> <a href='/rango/about'>About</a>")
     context_list_category = Category.objects.order_by('-likes')[:5]
     content_list_page = Page.objects.order_by('-views')[:5]
-    context_dict = {'top5_categories': context_list_category, 'top5_pages': content_list_page}
+
+    # Homepage date info
+    now = datetime.datetime.now()
+    day_iso = now.isocalendar()
+    day_name = calendar.day_name[now.weekday()]
+
+    # Orchestrate feedback dictionary to template
+    context_dict = {
+        'top5_categories': context_list_category,
+        'today': now,
+        'day_iso': d_iso,
+        'day_name': day_name,
+        'top5_pages': content_list_page}
     return render(request, 'rango/index.html', context_dict)
 
 
