@@ -23,7 +23,7 @@ def index(request):
     context_dict = {
         'top5_categories': context_list_category,
         'today': now,
-        'day_iso': d_iso,
+        'day_iso': day_iso,
         'day_name': day_name,
         'top5_pages': content_list_page}
     return render(request, 'rango/index.html', context_dict)
