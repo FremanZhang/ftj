@@ -19,3 +19,5 @@
     1/ Cannot check existence.
     2/ String case seneitive. python, Python, pyTHON
     3/ Add datetime in Homepage: year_SN, week_SN, day_SN
+    4/ TIME_ZONE = 'Asia/Shanghai', USE_TZ = True
+    5/ add_page.html

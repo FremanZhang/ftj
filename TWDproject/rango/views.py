@@ -55,6 +55,7 @@ def category(request, category_name_slug):
     pages = Page.objects.filter(category=c)
     context_dict['pages'] = pages
     context_dict['category'] = c
+    context_dict['category_name_slug'] = c.slug
 
     return render(request, 'rango/category.html', context_dict)
 
@@ -73,4 +74,26 @@ def add_category(request):
     return render(request, 'rango/add_category.html', {'form': form})
 
 
+def add_page(request, category_name_slug):
+    cat = get_object_or_404(Category, slug=category_name_slug)
 
+    if request.method == 'POST':
+        form = PageForm(request.POST)
+        if form.is_valid:
+            if cat:
+                page = forms.save(commit=True)
+                page.category = cat
+                # page.views = 0
+                page.save()
+                return category(request, category_name_slug)
+        else:
+            print form.errors
+    else:
+        form = PageForm()
+
+    context_dict = {
+        'form': form,
+        'category_name_slug': cat.slug 
+    }
+    
+    return render(request, 'rango/add_page.html', context_dict)
