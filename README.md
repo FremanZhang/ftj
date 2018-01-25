@@ -21,3 +21,4 @@
     3/ Add datetime in Homepage: year_SN, week_SN, day_SN
     4/ TIME_ZONE = 'Asia/Shanghai', USE_TZ = True
     5/ add_page.html
+    6/ add https compatibility
