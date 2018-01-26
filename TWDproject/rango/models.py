@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.db.models import Model
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -29,4 +30,15 @@ class Page(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    website = models.URLField(max_length=256, blank=True)
+    
+    #Does it create 'MEDIA_ROOT/profile_images/'?
+    picture = models.ImageField(blank=True, upload_to='profile_images') 
+
+    def __unicode__(self):
+        return self.user.username
 

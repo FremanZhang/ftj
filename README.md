@@ -16,9 +16,11 @@
         url(r'^(?P<question_id>[0-9]+)/results/$', views.results, name='results'),
 
 - V8.3
+
     1/ Cannot check existence.
     2/ String case seneitive. python, Python, pyTHON
     3/ Add datetime in Homepage: year_SN, week_SN, day_SN
     4/ TIME_ZONE = 'Asia/Shanghai', USE_TZ = True
     5/ add_page.html
     6/ add https compatibility
+    7/ click 'create page' will add page repeatly.
