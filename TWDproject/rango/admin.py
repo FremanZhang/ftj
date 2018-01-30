@@ -15,7 +15,7 @@ class PageAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'url', 'views')
     empty_value_display = '-'
 
-class UserAdmin(admin.UserAdmin):
+class UserAdmin(admin.ModelAdmin):
     list_display = ('username', 'email', 'password', 'date_joined', 'last_login')
     empty_value_display = '-'
 
