@@ -115,7 +115,7 @@ def register(request):
 
             # Since we need to set the user attribute ourselves, we set commit=False.
             # This delays saving the model until we're ready to avoid integrity problems.
-            profile = profile_form.save(conmmit=False)
+            profile = profile_form.save(commit=False)
             profile.user = user
 
             if 'picture' in request.FILES:
