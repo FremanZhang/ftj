@@ -33,10 +33,10 @@ class Page(models.Model):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User) #create a model with a one-to-one association with the the `User` model
     website = models.URLField(max_length=256, blank=True)
     
-    #Does it create 'MEDIA_ROOT/profile_images/'?
+    #Does it create 'MEDIA_ROOT/profile_images/'? YES
     picture = models.ImageField(blank=True, upload_to='profile_images') 
 
     def __unicode__(self):
