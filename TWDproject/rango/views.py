@@ -146,7 +146,7 @@ def user_login(request):
 
         if user:
             if user.is_active:
-                login(user)
+                login(request, user)
                 return HttpResponseRedirect('/rango/index')
             else:
                 return HttpResponseRedirect('You rango account is disabled.')
