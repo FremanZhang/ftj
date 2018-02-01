@@ -23,3 +23,12 @@
 5. add_page.html
 6. add https compatibility
 7. click 'create page' will add page repeatly. cookie?
+
+- V9.5
+1. Django build-in support: Note that we make use of the **user** object, which is available to Django’s template system via the context.
+
+        {% if user.is_authenticated %}
+        <h1>Rango says... hello {{ user.username }}!</h1>
+        {% else %}
+        <h1>Rango says... hello world!</h1>
+        {% endif %}
