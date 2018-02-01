@@ -145,7 +145,7 @@ def user_login(request):
         user = authenticate(username=username, password=password)
 
         if user:
-            if user.is_valid:
+            if user.is_active:
                 login(user)
                 return HttpResponseRedirect('/rango/index')
             else:
