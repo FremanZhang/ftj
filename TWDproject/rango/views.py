@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, get_object_or_404
 # from django.http import Http404
-# from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 from rango.models import Category, Page
 from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 import datetime
@@ -135,3 +136,22 @@ def register(request):
     }
 
     return render(request, 'rango/register.html', context_dict)
+
+
+def user_login(request):
+    if request.method == 'POST' then:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_valid:
+                login(user)
+                return HttpResponseRedirect('/rango/index')
+            else:
+                return HttpResponseRedirect('You rango account is disabled.')
+        else:
+            print "Invalid login details: {0}, {1}".format(username, password)
+            return HttpResponse('Invalid login details supplied.')
+    else:
+        return render(request, 'rango/login.html', {})
