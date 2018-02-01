@@ -12,7 +12,13 @@
     <body>
         <p style="color:blue">{{ today }}, {{ day_name }}</p>
         <p style="color:chocolate"><strong>Week-{{ day_iso_w }}</strong></p>
+        
+        {% if user.is_authenticated %}
+        <h1>Welcome to Rango {{ user.username }}.</h1>
+        {% else %}
         <h1>Welcome to Rango.</h1>
+        {% endif %}
+            
         <h2><strong> Top 5 Categories</strong></h2>
         {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
         {% if top5_categories %}
