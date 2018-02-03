@@ -47,7 +47,7 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-            {% comment %} <h1>Welcome to Rango {{ user.username }}.</h1> {% endcomment %}
+            <h1>Welcome to Rango {{ user.username }}.</h1>
             <a href="/rango/restricted/">Restricted Page</a><br />
             <a href="/rango/logout/">Logout</a><br />
         {% else %}
