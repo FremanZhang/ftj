@@ -29,7 +29,8 @@
                 {% for category in top5_categories %}
                     <li>
                         {% comment %} {{ category.name }} {% endcomment %}
-                        <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a>
+                        {% comment %} <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a> {% endcomment %}
+                        <a href= "{% url 'category' category.slug %}"> {{ category.name }} </a>
                         {% comment %} decouple hardcode URLs below: pass parameter slug to category url pattern{% endcomment %}
                         {% comment %} <a href="{% url 'category' category.slug %}">{{ category.name }}</a> {% endcomment %}
                     </li>
