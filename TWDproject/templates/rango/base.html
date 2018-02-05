@@ -1,0 +1,34 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rango - {% block title %} FTJ Ticket {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div>
+        {% block body_block %}
+        
+        {% endblock body_block %}
+    </div>
+    
+    <hr />
+
+    <div>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="/rango/restricted/">Restricted Page</a></li>
+                <li><a href="/rango/logout/">Logout</a></li>
+                <li><a href="/rango/add_category"><strong>Add a New Category</strong></li>
+            {% else %}
+                <li><a href="/rango/register/">Register Here</a></li>
+                <li><a href="/rango/login/">Login</a></li>
+            {% endif %}
+                <li><a href="/rango/about/">About</a></li>    
+        </ul>
+    </div>
+    <hr />
+    <a href="/rango/">Home</a>
+</body>
+</html>
