@@ -12,7 +12,16 @@
     <body>
         <p style="color:blue">{{ today }}, {{ day_name }}</p>
         <p style="color:chocolate"><strong>Week-{{ day_iso_w }}</strong></p>
-            
+        {% if user.is_authenticated %}
+            <h1>Welcome to Rango {{ user.username }}.</h1>
+            <a href="/rango/restricted/">Restricted Page</a><br />
+            <a href="/rango/logout/">Logout</a><br />
+        {% else %}
+            {% comment %} <h1>Welcome to Rango.</h1> {% endcomment %}
+            <a href="/rango/register/">Register Here</a><br />
+            <a href="/rango/login/">Login</a><br />
+        {% endif %}    
+        
         <h2><strong> Top 5 Categories</strong></h2>
         {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
         {% if top5_categories %}
@@ -46,15 +55,7 @@
             <strong>There is no page to be presented.</strong>
         {% endif %}
 
-        {% if user.is_authenticated %}
-            <h1>Welcome to Rango {{ user.username }}.</h1>
-            <a href="/rango/restricted/">Restricted Page</a><br />
-            <a href="/rango/logout/">Logout</a><br />
-        {% else %}
-            {% comment %} <h1>Welcome to Rango.</h1> {% endcomment %}
-            <a href="/rango/register/">Register Here</a><br />
-            <a href="/rango/login/">Login</a><br />
-        {% endif %}
+
 
         <a href="/rango/about/">About</a><br />
         {% comment %} <a href="/rango/register/">Register</a><br /> {% endcomment %}
