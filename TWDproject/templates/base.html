@@ -25,7 +25,8 @@
                 <li><a href="/rango/register/">Register Here</a></li>
                 <li><a href="/rango/login/">Login</a></li>
             {% endif %}
-                <li><a href="/rango/about/">About</a></li>    
+                {% comment %} <li><a href="/rango/about/">About</a></li>     {% endcomment %}
+                <li><a href= "{% url 'about' %}">About</a></li>
         </ul>
     </div>
     <a href="/rango/">Home</a>
