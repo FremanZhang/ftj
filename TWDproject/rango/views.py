@@ -16,7 +16,7 @@ def index(request):
     context_list_category = Category.objects.order_by('-likes')[:5]
     content_list_page = Page.objects.order_by('-views')[:5]
 
-    # Homepage date info
+    # Homepage date display
     now = datetime.datetime.now()
     day_iso = now.isocalendar()
     day_name = calendar.day_name[now.weekday()]
@@ -62,6 +62,7 @@ def category(request, category_name_slug):
     return render(request, 'rango/category.html', context_dict)
 
 
+@login_required
 def add_category(request):
     if request.method =='POST':
         forms = CategoryForm(request.POST)
@@ -76,6 +77,7 @@ def add_category(request):
     return render(request, 'rango/add_category.html', {'form': form})
 
 
+@login_required
 def add_page(request, category_name_slug):
     cat = get_object_or_404(Category, slug=category_name_slug)
 

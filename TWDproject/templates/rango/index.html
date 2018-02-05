@@ -21,7 +21,7 @@
             <a href="/rango/register/">Register Here</a><br />
             <a href="/rango/login/">Login</a><br />
         {% endif %}    
-        
+
         <h2><strong> Top 5 Categories</strong></h2>
         {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
         {% if top5_categories %}
@@ -39,8 +39,12 @@
             <strong>There is no category to be presented.</strong>
         {% endif %}
         
-        <a href="/rango/add_category"><strong>Add a New Category</strong></a>
-        <br />
+        
+        {% if user.is_authenticated %}
+            <a href="/rango/add_category"><strong>Add a New Category</strong></a><br />            
+        {% endif %}
+            
+
 
         <h2><strong>Top 5 Pages</strong></h2> 
         {% if top5_pages %}
