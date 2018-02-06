@@ -157,7 +157,7 @@ def user_login(request):
             print "Invalid login details: {0}, {1}".format(username, password)
             return HttpResponse('Invalid login details supplied.')
     else:
-        return render(request, '/rango/login_required/login.html', {})
+        return render(request, '/rango/login.html', {})
 
 
 @login_required
@@ -166,7 +166,7 @@ def restricted(request):
         'restricted_message': 'Welcome to internal workshop!'
     }
     # return HttpResponse("Since you are logged in, you can see this message!")
-    return render(request, '/rango/login_required/restricted.html', context_dict)
+    return render(request, '/rango/restricted.html', context_dict)
 
 
 @login_required
