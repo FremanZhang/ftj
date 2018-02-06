@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+
+<html>
+
+    <head>
+        <title>Rango-FTWD-Home</title>
+    </head>
+
+    <body>
+        <p style="color:blue">{{ today }}, {{ day_name }}</p>
+        <p style="color:chocolate"><strong>Week-{{ day_iso_w }}</strong></p>
+        {% if user.is_authenticated %}
+            <h1>Welcome to Rango {{ user.username }}.</h1>
+            <a href="/rango/restricted/">Restricted Page</a><br />
+            <a href="/rango/logout/">Logout</a><br />
+        {% else %}
+            {% comment %} <h1>Welcome to Rango.</h1> {% endcomment %}
+            <a href="/rango/register/">Register Here</a><br />
+            <a href="/rango/login/">Login</a><br />
+        {% endif %}    
+
+        <h2><strong> Top 5 Categories</strong></h2>
+        {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
+        {% if top5_categories %}
+            <ul>
+                {% for category in top5_categories %}
+                    <li>
+                        {% comment %} {{ category.name }} {% endcomment %}
+                        {% comment %} <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a> {% endcomment %}
+                        <a href= "{% url 'category' category.slug %}"> {{ category.name }} </a>
+                        {% comment %} decouple hardcode URLs below: pass parameter slug to category url pattern{% endcomment %}
+                        {% comment %} <a href="{% url 'category' category.slug %}">{{ category.name }}</a> {% endcomment %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There is no category to be presented.</strong>
+        {% endif %}
+        
+        
+        {% if user.is_authenticated %}
+            <a href="/rango/add_category"><strong>Add a New Category</strong></a><br />            
+        {% endif %}
+            
+
+
+        <h2><strong>Top 5 Pages</strong></h2> 
+        {% if top5_pages %}
+            <ul>
+                {% for page in top5_pages %}
+                    <li>
+                        <a href="{{ page.url }}">{{ page.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There is no page to be presented.</strong>
+        {% endif %}
+
+
+
+        <a href="/rango/about/">About</a><br />
+        {% comment %} <a href="/rango/register/">Register</a><br /> {% endcomment %}
+        {% comment %} <a href="/rango/login/">Login</a><br /> {% endcomment %}
+        <img src="{% static "images/peiqi.jpg" %}" alt="Picture of Rango" />
+    </body>
+
+</html>
