@@ -9,7 +9,8 @@
     <p style="color:blue">{{ today }}, {{ day_name }}</p>
     <p style="color:red"><strong>Week-{{ day_iso_w }}</strong></p> 
     {% if usre.is_authenticated %}
-        <p style="color:maroon">Welcome to rango homepage {{ user.username }}.</p>
+        Welcome to rango homepage {{ user.username }}
+        <p style="color:maroon">Welcome to rango homepage {{ user.username }}</p>
     {% endif %}
 
     <h2><strong> Top 5 Categories</strong></h2>
