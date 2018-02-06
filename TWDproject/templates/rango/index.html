@@ -9,7 +9,12 @@
     <p style="color:blue">{{ today }}, {{ day_name }}</p>
     <p style="color:red"><strong>Week-{{ day_iso_w }} of Year 2018</strong></p> 
 
-    Welcome to Rango home.
+    {% if user.is_authenticated %}
+        <p style="color:red"><strong>Welcome to Rango home {{ user.username }}</strong></p> 
+    {% else %}
+        Welcome to Rango home.
+    {% endif %}
+
 
     <h2><strong> Top 5 Categories</strong></h2>
     {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
