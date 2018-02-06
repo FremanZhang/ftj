@@ -1,14 +1,11 @@
-<!DOCTYPE <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Rango Category Adding</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% comment %} <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script> {% endcomment %}
-</head>
-<body>
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Rango Category Adding
+{% endblock title %}
+
+{% block body_block %}
     <h1>Add a Category</h1>
     <form id="category_form", method="POST", action="/rango/add_category/">
         {% csrf_token %}
@@ -24,7 +21,4 @@
         
         <input type="submit", name="submit", value="Create Category" />
     </form>
-    <br />
-    <a href="/rango/">Back Home</a>
-</body>
-</html>
+{% endblock body_block %}
