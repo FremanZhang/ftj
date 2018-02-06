@@ -142,6 +142,7 @@ def register(request):
 
 
 def user_login(request):
+    context_dict = {}
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -157,8 +158,8 @@ def user_login(request):
             print "Invalid login details: {0}, {1}".format(username, password)
             return HttpResponse('Invalid login details supplied.')
     else:
-        # return render(request, '/rango/login.html', {})
-        return HttpResponse("<a href='/rango/login.html/'>Login</a>")
+        return render(request, '/rango/login.html', context_dict)
+        # return HttpResponse("<a href='/rango/login.html/'>Login</a>")
 
 
 @login_required
