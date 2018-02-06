@@ -32,3 +32,6 @@
         {% else %}
         <h1>Rango says... hello world!</h1>
         {% endif %}
+2. These two sentances are different:
+        return render(request, 'rango/login.html', {}) # working well
+        return render(request, '/rango/login.html', {}) # this will cause TemplateDoesNotExist exception
