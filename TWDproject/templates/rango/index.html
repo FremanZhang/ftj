@@ -7,7 +7,10 @@
 
 {% block body_block %}
     <p style="color:blue">{{ today }}, {{ day_name }}</p>
-    <p style="color:chocolate"><strong>Week-{{ day_iso_w }}</strong></p> 
+    <p style="color:red"><strong>Week-{{ day_iso_w }}</strong></p> 
+    {% if usre.is_authenticated %}
+        <p style="color:maroon">Welcome to rango homepage {{ user.username }}.</p>
+    {% endif %}
 
     <h2><strong> Top 5 Categories</strong></h2>
     {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
@@ -26,8 +29,6 @@
     {% else %}
         <strong>There is no category to be presented.</strong>
     {% endif %}
-
-
     {% if user.is_authenticated %}
         <a href="/rango/add_category"><strong>Add a New Category</strong></a><br />            
     {% endif %}
@@ -46,5 +47,4 @@
     {% endif %}
 
     <img src="{% static "images/peiqi.jpg" %}" alt="Picture of Rango" />
-
 {% endblock body_block %}
