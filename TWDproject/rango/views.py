@@ -97,7 +97,8 @@ def add_page(request, category_name_slug):
 
     context_dict = {
         'form': form,
-        'category_name_slug': cat.slug 
+        'category_name_slug': cat.slug,
+        'category': cat.name
     }
     
     return render(request, 'rango/add_page.html', context_dict)
