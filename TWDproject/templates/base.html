@@ -18,8 +18,6 @@
     <div>
         <ul>
             {% if user.is_authenticated %}
-                {% comment %} <li><a href="/rango/add_category"><strong>Add a New Category</strong></li> {% endcomment %}
-                <li><a href="{% url 'add_category' %}"><strong>Add a New Category</strong></li>
                 {% comment %} <li><a href="/rango/restricted/">Restricted Page</a></li> {% endcomment %}
                 <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
                 {% comment %} <li><a href="/rango/logout/">Logout</a></li> {% endcomment %}
