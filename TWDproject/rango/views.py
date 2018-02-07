@@ -12,6 +12,9 @@ import datetime
 import calendar
 
 def index(request):
+    
+    request.session.set_test_cookie()
+
     # return HttpResponse(" Rango says: Hello world! <br/> <a href='/rango/about'>About</a>")
     context_list_category = Category.objects.order_by('-likes')[:5]
     content_list_page = Page.objects.order_by('-views')[:5]
@@ -105,6 +108,11 @@ def add_page(request, category_name_slug):
 
 
 def register(request):
+    
+    if request.session.test_cookie_worked():
+        print ">>>TEST COOKIE WORKED!"
+        request.session.delete_test_cookie()
+
     #Change to True when registration succeeds.
     registered = False
 
