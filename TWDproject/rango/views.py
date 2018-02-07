@@ -13,7 +13,7 @@ import calendar
 
 def index(request):
     
-    print request
+    print request.COOKIE
 
     # return HttpResponse(" Rango says: Hello world! <br/> <a href='/rango/about'>About</a>")
     context_list_category = Category.objects.order_by('-likes')[:5]
