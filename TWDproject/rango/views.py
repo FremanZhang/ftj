@@ -8,14 +8,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from rango.models import Category, Page
 from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
-import datetime
+from datetime import datetime
 import calendar
 
 def index(request):
-    
-    print request.COOKIES
-
-    # return HttpResponse(" Rango says: Hello world! <br/> <a href='/rango/about'>About</a>")
     context_list_category = Category.objects.order_by('-likes')[:5]
     content_list_page = Page.objects.order_by('-views')[:5]
 
@@ -31,7 +27,28 @@ def index(request):
         'day_iso_w': day_iso[1],
         'day_name': day_name,
         'top5_pages': content_list_page}
-    return render(request, 'rango/index.html', context_dict)
+    # return render(request, 'rango/index.html', context_dict)
+    response = render(request, 'rango/index.html', context_dict)
+
+    visits = int(request.COOKIES.get('visit', '1')) # set default non-existence to 1  
+    reset_last_visit_time = False
+
+    if 'last_visit' in request.COOKIES:
+        last_visit = request.COOKIES['last_visit']
+        last_visit_time = datetime.strptime(last_vist[:7], "%Y-%m-%d %H:%M:%S")
+        if (datetime.now() - last_visit_time).seconds > 1:
+            visits = visits + 1
+            reset_last_visit_time = True
+    else:
+        reset_last_visit_time = True
+        context_dict['visits'] = visits
+        response = render(request, 'rango/index.html', context_dict)
+    
+    if reset_last_visit_time:
+        response.set_cookie('last_visit', datetime.now())
+        response.set_cookie('visits', visits)
+    
+    return response
 
 
 def about(request):

@@ -6,13 +6,13 @@
 {% endblock title %}
 
 {% block body_block %}
-    <p style="color:blue">{{ today }}, {{ day_name }}</p>
-    <p style="color:red"><strong>Week-{{ day_iso_w }} of Year 2018</strong></p> 
+    <p style="color:darkblue">{{ today }}, {{ day_name }}</p>
+    <p style="color:darkblue">Week-{{ day_iso_w }} of Year 2018. Visits: {{ visits }}</p> 
 
     {% if user.is_authenticated %}
-        <p style="color:magenta"><strong>Welcome to Rango Homepage {{ user.username }}.</strong></p> 
+        <p style="color:darkgoldenrod"><strong>Welcome to Rango Homepage {{ user.username }}.</strong></p> 
     {% else %}
-        <p style="color:magenta">Welcome to Rango Homepage.</p>
+        <p style="color:darkgoldenrod"><strong>Welcome to Rango Homepage.</strong></p>
     {% endif %}
 
 
