@@ -56,7 +56,7 @@ def index(request):
     last_visit = request.session.get('last_visit')
     if last_visit:
         last_visit_time = datetime.strptime(last_visit[:-7], "%Y-%m-%d %H:%M:%S")
-        if (datetime.now() - last_visit_time).second > 0:
+        if (datetime.now() - last_visit_time).seconds > 0:
             visits = visits + 1
             reset_last_visit_time = True
     else:
