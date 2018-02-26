@@ -16,7 +16,7 @@ def index(request):
     content_list_page = Page.objects.order_by('-views')[:5]
 
     # Homepage date display
-    now = datetime.datetime.now()
+    now = datetime.now()
     day_iso = now.isocalendar()
     day_name = calendar.day_name[now.weekday()]
 
