@@ -29,25 +29,45 @@ def index(request):
         'top5_pages': content_list_page}
     # return render(request, 'rango/index.html', context_dict)
 
-    visits = int(request.COOKIES.get('visit', '1')) # set default non-existence to 1  
-    reset_last_visit_time = False
-    response = render(request, 'rango/index.html', context_dict)
+    # visits = int(request.COOKIES.get('visit', '1')) # set default non-existence to 1  
+    # reset_last_visit_time = False
+    # response = render(request, 'rango/index.html', context_dict)
 
-    if 'last_visit' in request.COOKIES:
-        last_visit = request.COOKIES['last_visit']
+    # if 'last_visit' in request.COOKIES:
+    #     last_visit = request.COOKIES['last_visit']
+    #     last_visit_time = datetime.strptime(last_visit[:-7], "%Y-%m-%d %H:%M:%S")
+    #     if (datetime.now() - last_visit_time).seconds > 1:
+    #         visits = visits + 1
+    #         reset_last_visit_time = True
+    # else:
+    #     reset_last_visit_time = True
+    #     context_dict['visits'] = visits
+    #     response = render(request, 'rango/index.html', context_dict)
+    
+    # if reset_last_visit_time:
+    #     response.set_cookie('last_visit', datetime.now())
+    #     response.set_cookie('visits', visits)
+    
+    visits = request.session.get('visits')
+    if not visits:
+        visits = 1
+    reset_last_visit_time = False
+
+    last_visit = request.session.get('last_visit')
+    if last_visit:
         last_visit_time = datetime.strptime(last_visit[:-7], "%Y-%m-%d %H:%M:%S")
-        if (datetime.now() - last_visit_time).seconds > 1:
+        if (datetime.now() - last_visit_time).second > 0:
             visits = visits + 1
             reset_last_visit_time = True
     else:
         reset_last_visit_time = True
-        context_dict['visits'] = visits
-        response = render(request, 'rango/index.html', context_dict)
-    
+
     if reset_last_visit_time:
-        response.set_cookie('last_visit', datetime.now())
-        response.set_cookie('visits', visits)
-    
+        request.session['last_visit'] = str(datetime.now())
+        request.session['visits'] = visits
+    context_dict['visits'] = visits
+    response = render(request, 'rango/index.html', context_dict)
+
     return response
 
 
