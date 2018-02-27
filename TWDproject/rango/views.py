@@ -81,7 +81,7 @@ def about(request):
         count = request.session.get('visits')
     else:
         count = 1
-    context_dict['visitis'] = count
+    context_dict['visits'] = count
     return render(request, 'rango/about.html', context_dict)
 
 
