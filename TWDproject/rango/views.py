@@ -80,7 +80,7 @@ def about(request):
     if request.session.get('visits'):
         count = request.session.get('visits')
     else:
-        count = 0
+        count = 1
     context_dict['visitis'] = count
     return render(request, 'rango/about.html', context_dict)
 
