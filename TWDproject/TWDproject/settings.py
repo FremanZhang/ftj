@@ -135,8 +135,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # LOGIN_URL = '/rango/login/'
 
 #User registration, login, logout relatives
-# REGISTRATION_OPEN = True
-ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 1
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = '/rango/'
 LOGIN_URL = '/accounts/login/'
