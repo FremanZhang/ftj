@@ -1,7 +1,8 @@
-{% extends "base.html" %}
+{% extends "rango/base.html" %}
 {% load i18n %}
 
 {% block content %}
+<h1>Register Here</h1>
 <form method="post" action=".">
   {% csrf_token %}
   {{ form.as_p }}
