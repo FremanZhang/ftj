@@ -38,3 +38,8 @@
         return render(request, 'rango/login.html', {}) # working well
         return render(request, '/rango/login.html', {}) # this will cause TemplateDoesNotExist exception
 2. <ExtendsNode: extends "base.html"> must be the first tag in the template.
+
+- V11.6
+1. Alternatively, persistent sessions are enabled by default, with SESSION_EXPIRE_AT_BROWSER_CLOSE either set to False, or not being present in your project’s settings.py file.
+2. Django Doc suggests running this daily as a cron job:
+        python manage.py clearsessions

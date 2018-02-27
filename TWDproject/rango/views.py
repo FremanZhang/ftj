@@ -73,10 +73,16 @@ def index(request):
 
 def about(request):
     context_dict = {
-        'aboutmessage': 'Welcome for contact as below.'
+        'aboutmessage': 'Welcome back'
     }
+    # return render(request, 'rango/about.html', context_dict)
+
+    if request.session.get('visits'):
+        count = request.session.get('visits')
+    else:
+        count = 0
+    context_dict['visitis'] = count
     return render(request, 'rango/about.html', context_dict)
-    # return HttpResponse("This is about page. <br/> <a href='/rango/'>Index</a>")
 
 
 def category(request, category_name_slug):
