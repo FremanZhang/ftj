@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block content %}
+{% block body_block %}
 <h1>Register Here</h1>
 <form method="post" action=".">
   {% csrf_token %}
@@ -9,4 +9,4 @@
 
   <input type="submit" value="{% trans 'Submit' %}" />
 </form>
-{% endblock %}
+{% endblock body_block%}
