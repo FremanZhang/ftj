@@ -33,13 +33,13 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'registration', # add django-registration-redux package. This app must appear above django.contrib.auth
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango', 
+    'registration', # add django-registration-redux package. This app must appear above django.contrib.auth
 ]
 
 MIDDLEWARE = [
