@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
+{# Load the tag library #}
 {% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
 
 {% block body_block %}
 <h1>Register Here</h1>
