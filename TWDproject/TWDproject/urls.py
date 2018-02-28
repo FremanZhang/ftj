@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from registration.backends.default.views import RegistrationView
 
 class MyRegistrationView(RegistrationView):
-    def get_success_url(self, request, user):
+    def get_success_url(self, user):
         return '/rango/'
 
 urlpatterns = [
