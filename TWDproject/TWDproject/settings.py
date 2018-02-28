@@ -59,7 +59,7 @@ ROOT_URLCONF = 'TWDproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_PATH], #customization path to template directory
+        'DIRS': [], #customization path to template directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
