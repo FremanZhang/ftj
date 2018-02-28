@@ -33,12 +33,12 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'registration', # add django-registration-redux package. This app must appear above django.contrib.auth
+    'django.contrib.auth',
     'rango', 
 ]
 
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'TWDproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [], #customization path to template directory
+        'DIRS': [TEMPLATE_PATH], #customization path to template directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
