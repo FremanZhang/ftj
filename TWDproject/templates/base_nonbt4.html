@@ -1,0 +1,49 @@
+<!DOCTYPE <!DOCTYPE html>
+{% load i18n %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rango - {% block title %} FTJ Ticket {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div>
+        {% block body_block %}
+        
+        {% endblock body_block %}
+    </div>
+    
+    <hr />
+
+    <div>
+        <ul>
+            {% if user.is_authenticated %}
+                {% comment %} <li><a href="/rango/restricted/">Restricted Page</a></li> {% endcomment %}
+                <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
+                {% comment %} <li><a href="/rango/logout/">Logout</a></li> {% endcomment %}
+                <li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
+                <li><a href="{% url 'auth_password_change' %}">Change Password</a></li>                
+            {% else %}
+                {% comment %} <li><a href="/rango/register/">Register Here</a></li> {% endcomment %}
+                <li><a href="{% url 'registration_register' %}">Register Here</a></li>
+                {% comment %} <li><a href="/rango/login/">Login</a></li> {% endcomment %}
+                <li><a href="{% url 'auth_login' %}">Login</a></li>
+            {% endif %}
+                {% comment %} <li><a href="/rango/about/">About</a></li>     {% endcomment %}
+                <li><a href= "{% url 'about' %}">About</a></li>
+        </ul>
+    </div>
+    <a href="/rango/">Home</a>
+</body>
+</html>
