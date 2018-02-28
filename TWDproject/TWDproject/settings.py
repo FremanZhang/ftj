@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rango', 
     'registration', # add django-registration-redux package. This app must appear above django.contrib.auth
+    'rango', 
 ]
 
 MIDDLEWARE = [
