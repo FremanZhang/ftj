@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load bootstap3 %}
 
 {% block body_block %}
 <h1>Register Here</h1>
-<form method="post" action=".">
+<form method="post" action="." class="form">
   {% csrf_token %}
+  {% bootstrap_form form %}
   {{ form.as_p }}
-
-  <input type="submit" value="{% trans 'Submit' %}" />
+  {% buttons %}
+  <button type="submit" class="btn btn-primary">
+      {% bootstrap_icon "star" %} Submit
+  </button>
+  {% endbuttons %} 
 </form>
 {% endblock body_block%}
