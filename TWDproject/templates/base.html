@@ -6,9 +6,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Freman's hardcode lab">
+    <meta name="author" content="Freman Zhang">
     <link rel="browser shortcut icon" src="{% static "images/favicon.ico" %}">
 
     <title>Rango - {% block title %}FTJ Ticket{% endblock %}</title>
@@ -22,6 +22,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css"></style>
   </head>
 
   <body>
@@ -56,7 +57,7 @@
       </div>
     </div> -->
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Rango</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/rango/">Rango</a>
         <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text">
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
@@ -96,7 +97,12 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
     <script src="{% static "bootstrap/js/jquery-3.js" %}"></script>
+    <script src="{% static "bootstrap/js/popper.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+    <script src="{% static "bootstrap/js/feather.js" %}"></script>
+    <script>
+        feather.replace()
+    </script>    
     <!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script> -->
