@@ -73,7 +73,7 @@ def index(request):
 
 def about(request):
     context_dict = {
-        'aboutmessage': 'Welcome back'
+        'aboutmessage': 'Welcome to Pig Village'
     }
     # return render(request, 'rango/about.html', context_dict)
 
