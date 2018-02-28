@@ -21,7 +21,8 @@
                 {% comment %} <li><a href="/rango/restricted/">Restricted Page</a></li> {% endcomment %}
                 <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
                 {% comment %} <li><a href="/rango/logout/">Logout</a></li> {% endcomment %}
-                <li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>                
+                <li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
+                <li><a href="{% url 'auth_password_change' %}">Change Password</a></li>                
             {% else %}
                 {% comment %} <li><a href="/rango/register/">Register Here</a></li> {% endcomment %}
                 <li><a href="{% url 'registration_register' %}">Register Here</a></li>
