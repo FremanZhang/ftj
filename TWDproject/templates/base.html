@@ -22,7 +22,7 @@
 
   <body>
     <!-- Page header navigation bar -->
-    <header>
+    <!-- <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <a class="navbar-brand" href="/rango/">Tymphany</a>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -44,7 +44,23 @@
             </form>
           </div>
         </nav>
-    </header>
+    </header> -->
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/rango/">Tymphany Chorus</a>
+        <!-- <input class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search" type="text"> -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a></li>
+            {% if user.is_authenticated %}
+            <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'restricted' %}">Restricted Page</a></li>
+            <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
+            <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'add_category' %}">Add a New Category</a></li>
+            <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'auth_password_change' %}">Change Password</a></li> 
+          {% else %}
+            <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'registration_register' %}">Register</a></li>
+            <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'auth_login' %}">Login</a></li>
+          {% endif %}
+          </ul>
+    </nav>
 
     <div class="container-fluid">
       <div class="row">
