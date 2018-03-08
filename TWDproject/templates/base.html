@@ -98,7 +98,15 @@
 
         <!-- content area-->
         <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <div class="center-block">
+          <div>
+            <style>  
+              .col-center-block {  
+                  float: none;  
+                  display: block;  
+                  margin-left: auto;  
+                  margin-right: auto;  
+              }
+            </style>  
             {% block body_block %}{% endblock %}
           </div>
         </div>
