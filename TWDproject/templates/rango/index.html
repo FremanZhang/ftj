@@ -9,7 +9,7 @@
     <p style="color:darkblue">{{ today }}, {{ day_name }}</p>
     <p style="color:darkblue">Week-{{ day_iso_w }} of Year 2018. Visits: {{ visits }}</p> 
 
-    <div class="page-header">
+    <div class="jumbotron">
         {% if user.is_authenticated %}
             <p style="color:darkgoldenrod"><strong>Welcome to Rango Homepage {{ user.username }}.</strong></p> 
         {% else %}
@@ -20,7 +20,7 @@
     <h2><strong> Top 5 Categories</strong></h2>
     {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
     {% if top5_categories %}
-        <ul>
+        <ul class="list-group">
             {% for category in top5_categories %}
                 <li>
                     {% comment %} {{ category.name }} {% endcomment %}
@@ -40,7 +40,7 @@
         
     <h2><strong>Top 5 Pages</strong></h2> 
     {% if top5_pages %}
-        <ul>
+        <ul class="list-group">
             {% for page in top5_pages %}
                 <li>
                     <a href="{{ page.url }}">{{ page.title }}</a>
