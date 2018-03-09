@@ -22,7 +22,7 @@
     {% if top5_categories %}
         <ul class="list-group">
             {% for category in top5_categories %}
-                <li>
+                <li class="list-group-item">
                     {% comment %} {{ category.name }} {% endcomment %}
                     {% comment %} <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a> {% endcomment %}
                     <a href= "{% url 'category' category.slug %}"> {{ category.name }} </a>
