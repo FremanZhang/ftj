@@ -17,43 +17,49 @@
         {% endif %}
     </div>
 
-    <div class="row placeholders">
-        <div class="col-xs-12 col-sm-6 placeholder">
+    <div class="row marketing">
+        <div class="col-lg-6">
             <h4><strong> Top 5 Categories</strong></h4>
             {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
-            {% if top5_categories %}
-                <ul class="list-group">
-                    {% for category in top5_categories %}
-                        <li>
-                            {% comment %} {{ category.name }} {% endcomment %}
-                            {% comment %} <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a> {% endcomment %}
-                            <a href= "{% url 'category' category.slug %}"> {{ category.name }} </a>
-                            {% comment %} decouple hardcode URLs below: pass parameter slug to category url pattern{% endcomment %}
-                            {% comment %} <a href="{% url 'category' category.slug %}">{{ category.name }}</a> {% endcomment %}
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <strong>There is no category to be presented.</strong>
-            {% endif %}
-            {% if user.is_authenticated %}
-                <a href="/rango/add_category"><strong>Add a New Category</strong></a><br />            
-            {% endif %}
+            <p>
+                {% if top5_categories %}
+                    <ul class="list-group">
+                        {% for category in top5_categories %}
+                            <li>
+                                {% comment %} {{ category.name }} {% endcomment %}
+                                {% comment %} <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a> {% endcomment %}
+                                <a href= "{% url 'category' category.slug %}"> {{ category.name }} </a>
+                                {% comment %} decouple hardcode URLs below: pass parameter slug to category url pattern{% endcomment %}
+                                {% comment %} <a href="{% url 'category' category.slug %}">{{ category.name }}</a> {% endcomment %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <strong>There is no category to be presented.</strong>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <a href="/rango/add_category"><strong>Add a New Category</strong></a><br />            
+                {% endif %}
+            </p>
+        </div>
+        
+        <div class="col-lg-6">
+            <h2><strong>Top 5 Pages</strong></h2>
+            <p>
+                {% if top5_pages %}
+                    <ul class="list-group">
+                        {% for page in top5_pages %}
+                            <li>
+                                <a href="{{ page.url }}">{{ page.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <strong>There is no page to be presented.</strong>
+                {% endif %}
+            </p> 
         </div>
     </div>
-        
-    <h2><strong>Top 5 Pages</strong></h2> 
-    {% if top5_pages %}
-        <ul class="list-group">
-            {% for page in top5_pages %}
-                <li>
-                    <a href="{{ page.url }}">{{ page.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <strong>There is no page to be presented.</strong>
-    {% endif %}
 
     <img src="{% static "images/peiqi.jpg" %}" alt="Picture of Rango" />
 {% endblock body_block %}
