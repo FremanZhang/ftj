@@ -17,26 +17,30 @@
         {% endif %}
     </div>
 
-    <h2><strong> Top 5 Categories</strong></h2>
-    {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
-    {% if top5_categories %}
-        <ul class="list-group">
-            {% for category in top5_categories %}
-                <li class="list-group-item">
-                    {% comment %} {{ category.name }} {% endcomment %}
-                    {% comment %} <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a> {% endcomment %}
-                    <a href= "{% url 'category' category.slug %}"> {{ category.name }} </a>
-                    {% comment %} decouple hardcode URLs below: pass parameter slug to category url pattern{% endcomment %}
-                    {% comment %} <a href="{% url 'category' category.slug %}">{{ category.name }}</a> {% endcomment %}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <strong>There is no category to be presented.</strong>
-    {% endif %}
-    {% if user.is_authenticated %}
-        <a href="/rango/add_category"><strong>Add a New Category</strong></a><br />            
-    {% endif %}
+    <div class="row placeholders">
+        <div class="col-xs-12 col-sm-6 placeholder">
+            <h3><strong> Top 5 Categories</strong></h3>
+            {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
+            {% if top5_categories %}
+                <ul>
+                    {% for category in top5_categories %}
+                        <li class="list-group-item">
+                            {% comment %} {{ category.name }} {% endcomment %}
+                            {% comment %} <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a> {% endcomment %}
+                            <a href= "{% url 'category' category.slug %}"> {{ category.name }} </a>
+                            {% comment %} decouple hardcode URLs below: pass parameter slug to category url pattern{% endcomment %}
+                            {% comment %} <a href="{% url 'category' category.slug %}">{{ category.name }}</a> {% endcomment %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <strong>There is no category to be presented.</strong>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <a href="/rango/add_category"><strong>Add a New Category</strong></a><br />            
+            {% endif %}
+        </div>
+    </div>
         
     <h2><strong>Top 5 Pages</strong></h2> 
     {% if top5_pages %}
