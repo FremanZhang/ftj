@@ -19,12 +19,12 @@
 
     <div class="row placeholders">
         <div class="col-xs-12 col-sm-6 placeholder">
-            <h3><strong> Top 5 Categories</strong></h3>
+            <h4><strong> Top 5 Categories</strong></h4>
             {% comment %} Hello world! <strong>{{ boldmessage }}</strong></body><br /> {% endcomment %}
             {% if top5_categories %}
-                <ul>
+                <ul class="list-group">
                     {% for category in top5_categories %}
-                        <li class="list-group-item">
+                        <li>
                             {% comment %} {{ category.name }} {% endcomment %}
                             {% comment %} <a href="/rango/category/{{ category.slug }}"> {{ category.name }} </a> {% endcomment %}
                             <a href= "{% url 'category' category.slug %}"> {{ category.name }} </a>
