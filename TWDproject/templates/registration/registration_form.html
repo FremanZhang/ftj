@@ -5,9 +5,9 @@
 
 {% block body_block %}
 <h2 class="form-signin-heading">Sign Up Here</h2>
-<form role="form" method="post" action=".">
+<form role="form" method="post" action="">
   {% csrf_token %}
-  {{ form.ap_p }}
+  {{ form.as_p }}
   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
