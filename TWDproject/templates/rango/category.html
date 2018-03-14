@@ -20,7 +20,7 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-            <button class="btn btn-primary" type="submit" name="submit"><a href="/rango/{{ category_name_slug }}/add_page/">Add Page</a></button>
+            <a href="/rango/{{ category_name_slug }}/add_page/"><button class="btn btn-primary" type="submit" name="submit">Add Page</button></a>
         {% endif %}
             
     {% else %}
