@@ -2,13 +2,13 @@
 {% load staticfiles %}
 
 {% block title %}
-    Rango Page Adding
+    Add Page
 {% endblock title %}
 
 
 {% block body_block %}
-    <h1>Add a {{ category }} Page</h1>
-    <form id="add_page", method="POST" action="/rango/{{ category_name_slug }}/add_page/">
+    <h2 class="form-signin-heading">Add a {{ category }} Page</h2>
+    <form role="form" id="add_page", method="POST" action="/rango/{{ category_name_slug }}/add_page/">
         {% csrf_token %}
         {% for hidden in form.hidden_fields %}
             {{ hidden }}
@@ -20,7 +20,8 @@
             {{ field }}<br>
         {% endfor %}
 
-        <input type="submit", name="submit", value="Create Page" />
+        {% comment %} <input type="submit", name="submit", value="Create Page" /> {% endcomment %}
+        <button class="btn btn-primary" type="submit" name="submit">Add Page</button>
     </form> 
     <br />
     <a href="/rango/category/{{ category_name_slug }}">Back to Category</a>
