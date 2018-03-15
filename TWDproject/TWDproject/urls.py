@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
-from rango import views
 from django.conf.urls.static import static
 from registration.backends.default.views import RegistrationView
 
@@ -25,7 +24,6 @@ class MyRegistrationView(RegistrationView):
         return '/rango/'
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^rango/', include('rango.urls')),
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),

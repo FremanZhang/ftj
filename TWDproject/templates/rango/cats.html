@@ -1,9 +1,9 @@
+<ul class="nav nav-sidebar flex-column"></ul>
 {% if cats %}
-    <ul class="nav nav-sidebar flex-column">
         {% for c in cats %}
             <li class="nav-item"><strong><a href= "{% url 'category' c.slug %}"> {{ c.name }} </a></strong></li>
         {% endfor %}
 {% else %}
         <li><strong>There are no category present.</strong></li>
-    </ul>
 {% endif %}
+</ul>
