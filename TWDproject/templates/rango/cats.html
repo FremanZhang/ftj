@@ -1,7 +1,8 @@
 <ul class="nav nav-sidebar flex-column"></ul>
 {% if cats %}
         {% for c in cats %}
-            <li class="nav-item"><strong><a href= "{% url 'category' c.category_name_slug %}"> {{ c.name }} </a></strong></li>
+            {% comment %} <li class="nav-item"><strong><a href= "{% url 'category' c.slug %}"> {{ c.name }} </a></strong></li> {% endcomment %}
+            <li class="nav-item"><strong>{{ c.slug }}</strong></li>
         {% endfor %}
 {% else %}
         <li><strong>There are no category present.</strong></li>
