@@ -11,7 +11,7 @@ from . import views
 #### [\w\-]+ of (?P<category_name_slug>[\w\-]+) presents one or more [number, char, _ or -]
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^about/', views.about, name='about'),
+    url(r'^about/$', views.about, name='about'),
     url(r'^category/(?P<category_name_slug>[\w\-]+)/$', views.category, name='category'),
     url(r'^category/$', views.index, name='category_list'),
     url(r'^add_category/$', views.add_category, name='add_category'),
