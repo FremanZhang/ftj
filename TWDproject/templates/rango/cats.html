@@ -1,7 +1,7 @@
 <ul class="nav nav-sidebar flex-column"></ul>
 {% if cats %}
         {% for c in cats %}
-            <li class="nav-item"><strong><a href= "{% url 'rango:category' category_name_slug=c.slug %}"> {{ c.name }} </a></strong></li>
+            {% comment %} <li class="nav-item"><strong><a href= "{% url 'category' category_name_slug=c.slug %}"> {{ c.name }} </a></strong></li> {% endcomment %}
             <li class="nav-item"><strong>{{ c.slug }}</strong></li>
         {% endfor %}
 {% else %}
