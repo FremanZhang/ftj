@@ -4,7 +4,8 @@
             {% if c == act_cat %}
                 <li class="active"><strong><a href="{% url 'category' c.slug %}">{{ c.name }}</a></strong></li>
             {% else  %}
-                <li class="nav-item"><a href="{% url 'category' c.slug %}">{{ c.name }}</a></li>
+                <!-- <li class="nav-item"><a href="{% url 'category' c.slug %}">{{ c.name }}</a></li> -->
+                <li class="nav-item"><a href="/rango/category/{{ category_name_slug }}">{{ c.name }}</a></li>
             {% endif %}
         {% endfor %}
     {% endif %}
