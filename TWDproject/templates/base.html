@@ -54,25 +54,6 @@
       </div>
     </nav>
 
-    {% comment %} sidebar area
-    <div class="col-sm-3 col-md-2 sidebar">
-      {% block side_block %}
-      {% get_category_list category%}
-      {% endblock %}
-    </div>
-
-    <!-- body block area -->
-    <div class="container-fluid col-md-6 col-md-offset-3">
-      <div class="row">
-        <!-- content area-->
-        <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" style="margin:auto;">
-          <div>
-            {% block body_block %}{% endblock %}
-          </div>
-        </div>
-      </div>
-    </div> {% endcomment %}
-
     <div class="container-fluid">
       <div class="row">
       <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -83,7 +64,7 @@
         </div>
       </nav>
     
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" style="margin:auto;">
         <div>
           {% block body_block %}{% endblock %}
         </div>
