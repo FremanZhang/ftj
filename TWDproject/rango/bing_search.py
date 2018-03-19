@@ -3,7 +3,7 @@ import requests
 
 
 def run_query(search_term):
-    search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
+    search_url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
     headers = {"Ocp-Apim-Subscription-Key" : key.BING_API_KEY}
     params  = {"q": search_term, "textDecorations":True, "textFormat":"HTML"}
     response = requests.get(search_url, headers=headers, params=params)
@@ -22,7 +22,7 @@ def run_query(search_term):
     return filtered_results
 
 
-if __name__ == '__main__':
-    main()
-    print filtered_results
+# if __name__ == '__main__':
+#     print run_query('abigaile')
+
     
