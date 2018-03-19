@@ -18,7 +18,11 @@
     <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{% static "bootstrap/css/dashboard.css" %}" rel="stylesheet">
-    <style type="text/css"></style>
+    <style type="text/css">
+      div{
+        display:inline
+      }
+    </style>
   </head>
 
   <body>
@@ -50,7 +54,7 @@
       </div>
     </nav>
 
-    {% comment %} sidebar area {% endcomment %}
+    {% comment %} sidebar area
     <div class="col-sm-3 col-md-2 sidebar">
       {% block side_block %}
       {% get_category_list category%}
@@ -67,6 +71,22 @@
           </div>
         </div>
       </div>
+    </div> {% endcomment %}
+
+    <div class="container-fluid">
+      <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+        {% block side_block %}
+        {% get_category_list category%}
+        {% endblock %}
+        </div>
+      </nav>
+    
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        {% block body_block %}{% endblock %}
+      </div>
+      </div>        
     </div>
 
     <!-- Bootstrap core JavaScript
