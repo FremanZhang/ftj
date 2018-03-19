@@ -9,13 +9,11 @@
     <p style="color:darkblue">{{ today }}, {{ day_name }}</p>
     <p style="color:darkblue">Week-{{ day_iso_w }} of Year 2018. Visits: {{ visits }}</p> 
 
-    <div class="jumbotron">
-        {% if user.is_authenticated %}
-            <p style="color:darkgoldenrod"><strong>Welcome to Rango Homepage {{ user.username }}.</strong></p> 
-        {% else %}
-            <p style="color:darkgoldenrod"><strong>Welcome to Rango Homepage.</strong></p>
-        {% endif %}
-    </div>
+    {% if user.is_authenticated %}
+        <p style="color:darkgoldenrod"><strong>Welcome to Rango Homepage {{ user.username }}.</strong></p> 
+    {% else %}
+        <p style="color:darkgoldenrod"><strong>Welcome to Rango Homepage.</strong></p>
+    {% endif %}
 
     <div class="row marketing">
         <div class="col-lg-6">
