@@ -30,9 +30,9 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 {% for result in result_list %}
-                                    <div class="list-group-item">
-                                        <h4 class="list-group-item-heading"><a href="{{ result.content_link }}">{{ result.title }}</a></h4>
-                                        <p class="list-group-item-text">From: <a href="{{ result.origin_page }}">{{ result.title }}</a></p>
+                                    <div class="list-group-item" style="width:915px; height:102px; background:springgreen">
+                                        <h4 class="list-group-item-heading" style="word-wrap:break-word; word-break:break-all;"><a href="{{ result.content_link }}">{{ result.title }}</a></h4>
+                                        <p class="list-group-item-text" style="word-wrap:break-word; word-break:break-all;">From: <a href="{{ result.origin_page }}">{{ result.title }}</a></p>
                                     </div>
                                 {% endfor %}
                             </div>
