@@ -101,7 +101,7 @@ def category(request, category_name_slug):
     c = get_object_or_404(Category, slug=category_name_slug)
     context_dict['category_name'] = c.name 
     
-    pages = Page.objects.filter(category=c)
+    pages = Page.objects.filter(category=c),order_by('-views')
     context_dict['pages'] = pages
     context_dict['category'] = c
     context_dict['category_name_slug'] = c.slug
@@ -231,3 +231,16 @@ def search(request):
             result_list = run_query(query)
 
     return render(request, 'rango/search.html', {'result_list': result_list})
+
+
+def track_url(request):
+    if request.method == 'GET':
+        if 'page_id' in request.GET:
+            page_id = request.GET['page_id']
+            page = get_object_or_404(Page, id=page_id)
+            page.views += 1
+            page.save()
+            return HttpResponseRedirect(page.url)
+    else:
+        return HttpResponseRedirect('/rango/')
+
