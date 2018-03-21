@@ -238,7 +238,7 @@ def track_url(request):
         if 'page_id' in request.GET:
             page_id = request.GET['page_id']
             page = get_object_or_404(Page, id=page_id)
-            page.views += 1
+            page.views = page.views + 1
             page.save()
             return HttpResponseRedirect(page.url)
     else:
