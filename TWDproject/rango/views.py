@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, get_object_or_404
 # from django.http import Http404
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from rango.models import Category, Page
@@ -240,7 +241,7 @@ def track_url(request):
             page = get_object_or_404(Page, id=page_id)
             page.views = page.views + 1
             page.save()
-            return HttpResponseRedirect(page.url)
+            return redirect(page.url)
     else:
-        return HttpResponseRedirect('/rango/')
+        return redirect('/rango/')
 
