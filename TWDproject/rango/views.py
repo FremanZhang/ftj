@@ -101,7 +101,7 @@ def category(request, category_name_slug):
     c = get_object_or_404(Category, slug=category_name_slug)
     context_dict['category_name'] = c.name 
     
-    pages = Page.objects.filter(category=c),order_by('-views')
+    pages = Page.objects.filter(category=c).order_by('-views')
     context_dict['pages'] = pages
     context_dict['category'] = c
     context_dict['category_name_slug'] = c.slug
