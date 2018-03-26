@@ -1,5 +1,6 @@
 import key
 import requests
+import re
 
 
 def run_query(search_term):
@@ -11,12 +12,13 @@ def run_query(search_term):
     search_results = response.json()
 
     filtered_results = []
+    dr = re.compile(r'<[^>]+>',re.S) #delete html tags
 
     for result in search_results['value']:
         filtered_results.append({
-            'title': result['name'],
-            'content_link': result['url'],
-            'description': result['description']
+            'title': dr.sub('', result['name']),
+            'content_link': dr.sub('', result['url']),
+            'description': dr.sub('', result['description'])
         })
 
     return filtered_results
