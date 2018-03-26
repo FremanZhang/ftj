@@ -3,7 +3,7 @@ import requests
 
 
 def run_query(search_term):
-    search_url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
+    search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
     headers = {"Ocp-Apim-Subscription-Key" : key.BING_API_KEY}
     params  = {"q": search_term, "textDecorations":True, "textFormat":"HTML"}
     response = requests.get(search_url, headers=headers, params=params)
@@ -15,8 +15,8 @@ def run_query(search_term):
     for result in search_results['value']:
         filtered_results.append({
             'title': result['name'],
-            'content_link': result['contentUrl'],
-            'origin_page': result['hostPageDisplayUrl']
+            'content_link': result['url'],
+            'description': result['description']
         })
 
     return filtered_results
