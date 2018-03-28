@@ -22,6 +22,33 @@
 
         {% if user.is_authenticated %}
             <!-- <a href="/rango/{{ category_name_slug }}/add_page/"><button class="btn btn-primary" type="submit" name="submit">Add Page</button></a> -->
+            <form class="form-inline" id="user_form" method="post" action="{% url 'category' category.slug %}">
+                {% csrf_token %}
+                <!-- Display the search form elements here -->
+                <input class="form-control" type="text" size="50" name="query" value="" id="query" />
+                <input class="btn btn-primary" type="submit" name="submit" value="Search" />
+                <br />
+            </form>
+
+            <div class="panel">
+                {% if result_list %}
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Results</h3>
+                        <!-- Display search results in an ordered list -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                {% for result in result_list %}
+                                    <div class="list-group-item" style="width:915px; height:102px; background:silver">
+                                        <h4 class="list-group-item-heading" style="word-wrap:break-word; word-break:break-all;"><a href="{{ result.content_link }}">{{ result.title }}</a></h4>
+                                        <p class="list-group-item-text" style="word-wrap:break-word; word-break:break-all;">From: {{ result.description }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
             <a href="{% url 'add_page' category.slug %}"><button class="btn btn-primary" type="submit" name="submit">Add Page</button></a>
         {% endif %}
             
