@@ -12,7 +12,7 @@ def run_query(search_term):
     search_results = response.json()
 
     filtered_results = []
-    dr = re.compile(r'<[^>]+>',re.S) #delete html tags
+    dr = re.compile(r'<[^>]+>', re.S) #delete html tags
 
     for result in search_results['value']:
         filtered_results.append({

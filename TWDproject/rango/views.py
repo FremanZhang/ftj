@@ -89,23 +89,26 @@ def about(request):
 
 def category(request, category_name_slug):
     context_dict = {}
-    # try:
-    #     c = Category.objects.get(slug=category_name_slug)
-    #     context_dict['category_name'] = c.name 
-        
-    #     pages = Page.objects.filter(category=c)
-    #     context_dict['pages'] = pages
-    #     context_dict['category'] = c
-    # except Category.DoesNotExist:
-    #     raise Http404('Category does not exist.')
+    context_dict['result_list'] = None
+    context_dict['query'] = None
+
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+
+        if query:
+            result_list = run_query(query)
+            context_dict['result_list'] = result_list
+            context_dict['query'] = query
 
     c = get_object_or_404(Category, slug=category_name_slug)
-    context_dict['category_name'] = c.name 
-    
+    context_dict['category_name'] = c.name         
     pages = Page.objects.filter(category=c).order_by('-views')
     context_dict['pages'] = pages
     context_dict['category'] = c
     context_dict['category_name_slug'] = c.slug
+
+    if not context_dict['query']:
+        context_dict['query'] = category.name
 
     return render(request, 'rango/category.html', context_dict)
 
