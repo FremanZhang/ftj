@@ -140,7 +140,8 @@ def add_page(request, category_name_slug):
                 page.category = cat
                 # page.views = 0
                 page.save()
-                return category(request, category_name_slug)
+                # return category(request, category_name_slug), should prevent POST to category again, just redirect.
+                return redirect('/rango/category/category_name_slug')
         else:
             print form.errors
     else:
