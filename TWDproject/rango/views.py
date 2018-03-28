@@ -108,7 +108,7 @@ def category(request, category_name_slug):
     context_dict['category_name_slug'] = c.slug
 
     if not context_dict['query']:
-        context_dict['query'] = category.name
+        context_dict['query'] = c.name
 
     return render(request, 'rango/category.html', context_dict)
 
