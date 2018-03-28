@@ -51,9 +51,8 @@
                     </div>
                 </div>
             </div>
-
+            <p><a href="{% url 'add_page' category.slug %}"><button class="btn btn-primary" type="submit" name="submit">Add Page</button></a></p>
             <!-- <a href="/rango/{{ category_name_slug }}/add_page/"><button class="btn btn-primary" type="submit" name="submit">Add Page</button></a> -->
-            <a href="{% url 'add_page' category.slug %}"><button class="btn btn-primary" type="submit" name="submit">Add Page</button></a>
         {% endif %}
             
     {% else %}
