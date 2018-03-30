@@ -6,7 +6,7 @@ from django.db.models import Model
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.dispatch import receiver
-from regisration.signals import user_registered
+from registration.signals import user_registered
 
 # Create your models here.
 
