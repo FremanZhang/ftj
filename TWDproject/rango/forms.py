@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from rango.models import Category, Page, UserProfile
+from registration.forms import RegisrationForm
 
 
 class CategoryForm(forms.ModelForm):
@@ -46,5 +47,3 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('website', 'picture')
-
-        

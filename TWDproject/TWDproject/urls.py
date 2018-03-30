@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from registration.backends.default.views import RegistrationView
+from rango.forms import UserProfileForm
+
 
 class MyRegistrationView(RegistrationView):
+    form_class = UserProfileForm
     def get_success_url(self, user):
         return '/rango/'
 

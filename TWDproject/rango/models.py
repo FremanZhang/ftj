@@ -5,6 +5,7 @@ from django.db import models
 from django.db.models import Model
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
+from regisration.signals import user_registered
 
 # Create your models here.
 
@@ -40,5 +41,12 @@ class UserProfile(models.Model):
     picture = models.ImageField(blank=True, upload_to='profile_images') 
 
     def __unicode__(self):
-        return self.user.username
+        # return self.user.username
+        return self.user
 
+
+def user_registered_callback(sender, user, request):
+    profile = UserProfile(user=user)
+    if 'picture' in request.FILES:
+        profile.picture = request.FILES['picture']
+    profile.save()
