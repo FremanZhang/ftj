@@ -5,6 +5,7 @@ from django.db import models
 from django.db.models import Model
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
+from django.dispatch import receiver
 from regisration.signals import user_registered
 
 # Create your models here.
@@ -44,8 +45,8 @@ class UserProfile(models.Model):
         # return self.user.username
         return self.user
 
-
-def user_registered_callback(sender, user, request):
+@receiver(user_registered)
+def user_registered_callback(sender, user, request, **kwargs):
     profile = UserProfile(user=user)
     if 'picture' in request.FILES:
         profile.picture = request.FILES['picture']
