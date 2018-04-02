@@ -50,9 +50,9 @@ class UserProfileForm(forms.ModelForm, User):
     class Meta:
         model = UserProfile
         fields = (
-            username, 
-            email,             
-            password,
-            date_joined, 
+            'username', 
+            'email',             
+            'password',
+            'date_joined', 
             'website', 
             'picture')
