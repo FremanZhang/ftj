@@ -5,9 +5,10 @@
 
 {% block body_block %}
 <h2 class="form-signin-heading">Sign Up Here</h2>
-<form role="form"  method="post" action=".">
+<form role="form" method="post" action=".">
   {% csrf_token %}
-  <div class="form-group" >
+  {{ form.as_p }}
+  <!-- <div class="form-group" >
     <p class="required"><label class="required" for="id_username">Username:</label>
         <input class="form-control" id="id_username" maxlength="30" name="username" type="text" />
         <span class="helptext">Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
@@ -22,7 +23,7 @@
         <input class="form-control" id="id_password2" name="password2" type="password" />
         <span class="helptext">Enter the same password as before, for verification.</span>
     </p>
-  </div>
+  </div> -->
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock body_block%}
