@@ -42,14 +42,17 @@ class UserForm(forms.ModelForm):
         fields = ('username', 'email', 'password', 'date_joined')
 
 
-class UserProfileForm(forms.ModelForm):
-
+class UserProfileForm(forms.ModelForm, User):
+    username = User.username
+    email = User.email
+    password = User.password
+    date_join = User.date_joined
     class Meta:
         model = UserProfile
         fields = (
-            user.username, 
-            user.email,             
-            user.password,
-            user.date_joined, 
+            username, 
+            email,             
+            password,
+            date_joined, 
             'website', 
             'picture')
