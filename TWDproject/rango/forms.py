@@ -42,7 +42,14 @@ class UserForm(forms.ModelForm):
         fields = ('username', 'email', 'password', 'date_joined')
 
 
-class UserProfileForm(forms.ModelForm):
+class UserProfileForm(forms.ModelForm, User):
+    user = models.OneToOneField(User)
     class Meta:
         model = UserProfile
-        fields = ('username', 'email', 'password', 'date_joined', 'website', 'picture')
+        fields = (
+            user.username, 
+            user.email,             
+            user.password,
+            user.date_joined, 
+            'website', 
+            'picture')
