@@ -43,8 +43,8 @@ class UserForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.ModelForm, User):
-    website = forms.URLField(max_length=256, blank=True)
-    picture = forms.ImageField(blank=True, upload_to='profile_images')
+    website = forms.URLField(max_length=256)
+    picture = forms.ImageField()
     password = forms.CharField(widget = forms.PasswordInput())
 
     class Meta:

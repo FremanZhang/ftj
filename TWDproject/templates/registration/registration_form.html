@@ -5,7 +5,7 @@
 
 {% block body_block %}
 <h2 class="form-signin-heading">Sign Up Here</h2>
-<form role="form" method="post" action=".">
+<form role="form" method="post" enctype="multipart/form-data" action=".">
   {% csrf_token %}
   {{ form.as_p }}
   <!-- <div class="form-group" >
