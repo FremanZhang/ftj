@@ -42,7 +42,7 @@ class UserForm(forms.ModelForm):
         fields = ('username', 'email', 'password', 'date_joined')
 
 
-class UserProfileForm(forms.ModelForm, User):
+class UserProfileForm(forms.ModelForm):
     website = forms.URLField(max_length=256)
     picture = forms.ImageField()
     password = forms.CharField(widget = forms.PasswordInput())
