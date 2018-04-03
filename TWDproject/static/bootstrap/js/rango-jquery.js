@@ -1,5 +1,6 @@
 $(document).ready(function(){
     //JQuery code to be added in here.
+    $("#about-btn").addClass('btn btn-primary')
     $("#about-btn").click(function(event){
         // alert("You clicked the button using JQuery!")
         msgstr = $("#msg").html()
