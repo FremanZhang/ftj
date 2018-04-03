@@ -43,12 +43,12 @@ class UserForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.ModelForm, User):
-    username = User.username
-    email = User.email
-    password = User.password
-    date_join = User.date_joined
+    website = forms.URLField(max_length=256, blank=True)
+    picture = forms.ImageField(blank=True, upload_to='profile_images')
+    password = forms.CharField(widget = forms.PasswordInput())
+
     class Meta:
-        model = UserProfile
+        model = User
         fields = (
             'username', 
             'email',             
