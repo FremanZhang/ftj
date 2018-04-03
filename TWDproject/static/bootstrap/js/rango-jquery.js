@@ -5,10 +5,10 @@ $(document).ready(function(){
     });
 
     $("p").hover(function(){
-        $(this).css('color', 'red');
+        $(p).css('color', 'red');
     },
     function(){
-        $(this).css('color', 'black');
+        $(p).css('color', 'black');
     });
 
 });
