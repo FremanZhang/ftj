@@ -260,8 +260,8 @@ def like_category(request):
     if cat_id:
         cat = get_object_or_404(Category, id=int(cat_id))
         if cat:
-            cat.likes += 1
-            likes = cat.likes
+            likes = cat.likes + 1
+            cat.likes = likes
             cat.save()
     return HttpResponse(likes)
 
