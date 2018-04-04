@@ -4,8 +4,8 @@ $(document).ready(function(){
     $("#about-btn").click(function(event){
         // alert("You clicked the button using JQuery!")
         msgstr = $("#msg").html()
-                msgstr = msgstr + "O"
-                $("#msg").html(msgstr)
+        msgstr = msgstr + "O"
+        $("#msg").html(msgstr)
     });
 
     $("p").hover(function(){
