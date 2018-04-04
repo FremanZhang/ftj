@@ -263,5 +263,6 @@ def like_category(request):
             likes = cat.likes + 1
             cat.likes = likes
             cat.save()
+    print likes
     return HttpResponse(likes)
 
