@@ -43,3 +43,8 @@
 1. Alternatively, persistent sessions are enabled by default, with SESSION_EXPIRE_AT_BROWSER_CLOSE either set to False, or not being present in your project’s settings.py file.
 2. Django Doc suggests running this daily as a cron job:
         python manage.py clearsessions
+
+- V19.2
+1. Add like_category function
+
+        base.html imports ajax -> category.html add display -> like_cateogry view -> urls -> rango-ajax.js

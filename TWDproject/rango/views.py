@@ -249,3 +249,19 @@ def track_url(request):
     else:
         return redirect('/rango/')
 
+
+@login_required
+def like_category(request):
+    cat_id = None
+    if request.method == 'GET':
+        cat_id = request.GET['category_id']
+    
+    likes = 0
+    if cat_id:
+        cat = get_object_or_404(Category, id=int(cat_id))
+        if cat:
+            cat.likes += 1
+            likes = cat.likes
+            cat.save()
+    return HttpResponse(likes)
+
