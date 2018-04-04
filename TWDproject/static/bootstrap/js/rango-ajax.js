@@ -1,9 +1,9 @@
 $(document).ready(function() {
     // JQuery code to be added in here.
     $('#likes').click(function(){
-        alert("Thanks for your like!");
         var catid;
-        catid = $(this).attr("data-catid");
+        catid = $(this).attr('data-catid');
+        alert("Thanks for your like!");
         $.get('/rango/like_category/', {category_id: catid}, function(data){
             $('#like_count').html(data);
             $('#likes').hide();
