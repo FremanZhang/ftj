@@ -3,6 +3,7 @@ $(document).ready(function() {
     $('#likes').click(function(){
         var catid;
         catid = $(this).attr('data-catid');
+        alert(catid)
         $.get('/rango/like_category/', {category_id: catid}, function(data){
             alert("Thanks for your like!");
             $('#like_count').html(data);
