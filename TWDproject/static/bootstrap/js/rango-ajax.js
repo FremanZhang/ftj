@@ -4,7 +4,7 @@ $(document).ready(function() {
         var catid;
         catid = $(this).attr('data-catid');
         $.get('/rango/like_category/', {"category_id": catid}, function(data){
-            alert(data);
+            alert("数据：" + data + "\n状态：" + status);
             $('#like_count').html(data);
             $('#likes').hide();
         });
