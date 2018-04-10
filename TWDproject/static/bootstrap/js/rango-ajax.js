@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // JQuery code to be added in here.
-    $('#likes').click(function(event){
+    $('#likes').click(function(){
         var catid;
         catid = $(this).attr('data-catid');
         alert(catid)
