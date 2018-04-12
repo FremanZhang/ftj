@@ -50,6 +50,6 @@
         base.html imports ajax -> category.html add display -> like_cateogry view -> urls -> rango-ajax.js
 
 2. convert to right jquery version
-        You are using the slim version of jQuery, which doesn't have AJAX(in your case the $.post() function).
 
+        You are using the slim version of jQuery, which doesn't have AJAX(in your case the $.post() function).
         Use the complete build, <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
