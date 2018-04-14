@@ -270,7 +270,8 @@ def like_category(request):
 def get_category_list(max_results=0, starts_with=''):
     cat_list = []
     if starts_with:
-        cat_list = get_object_or_404(Category, name__istartswith=starts_with)
+        # cat_list = get_object_or_404(Category, name__istartswith=starts_with)
+        cat_list = Category.objects.filter(name__istartswith=starts_with)
     
     if cat_list and max_results > 0:
         if cat_list.count() > max_results:
@@ -289,4 +290,3 @@ def suggest_category(request):
 
     return render(request, 'rango/cats/.html', {'cat_list': cat_list})
 
-    
