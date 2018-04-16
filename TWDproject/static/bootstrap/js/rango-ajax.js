@@ -15,6 +15,7 @@ $(document).ready(function() {
         var query;
         query = $(this).val();
         $.get('/rango/suggest_category/', {suggestion: query}, function(data){
+            alert(data)
             $('#cats').html(data);
         });
     });
