@@ -53,6 +53,7 @@
                                             <div class="list-group-item" style="width:915px; height:102px; background:silver">
                                                 <h4 class="list-group-item-heading" style="word-wrap:break-word; word-break:break-all;"><a href="{{ result.content_link }}">{{ result.title }}</a></h4>
                                                 <p class="list-group-item-text" style="word-wrap:break-word; word-break:break-all;">Description: {{ result.description }}</p>
+                                                <button data-catid="{{ category.id }}" data-title="{{ result.title }}" data-url="{{ result.content_link }}" class="rango-add btn btn-mini btn-info" type="button">Add</button>
                                             </div>
                                         {% endfor %}
                                     </div>
