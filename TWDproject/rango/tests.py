@@ -12,7 +12,7 @@ class CategoryMethodTests(TestCase):
         self.assertEqual((cat.views>=0), True)
 
 
-def test_slug_line_creation(self):
-    cat = Category('random category string')
-    cat.save()
-    self.assertEqual(cat.slug, 'random-category-string')
+    def test_slug_line_creation(self):
+        cat = Category('random category string')
+        cat.save()
+        self.assertEqual(cat.slug, 'random-category-string')
